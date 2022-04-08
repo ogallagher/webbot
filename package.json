@@ -1,0 +1,59 @@
+{
+  "name": "webbot",
+  "version": "0.1.3",
+  "description": "Automate interactions within a webpage and across various pages.",
+  "main": "main.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "keywords": [
+    "automate",
+    "browser-extension",
+    "chrome",
+    "js",
+    "productivity"
+  ],
+  "author": "Owen Gallagher <github.com/ogallagher>",
+  "license": "SEE LICENSE IN license.txt",
+  "manifest_version": 3,
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": [],
+      "js": [
+        "external/jquery-3.5.1/jquery.min.js",
+        "main.js"
+      ]
+    }
+  ],
+	"background": {
+		"service_worker": "services.js"
+	},
+  "action": {
+    "default_icon": {
+      "16": "img/icon_16.png",
+      "24": "img/icon_24.png",
+      "32": "img/icon_32.png"
+    },
+    "default_popup": "page_menu.html"
+  },
+  "options_ui": {
+    "page": "root_menu.html",
+    "open_in_tab": false
+  },
+  "icons": {
+    "16": "img/icon_16.png",
+    "24": "img/icon_24.png",
+    "32": "img/icon_32.png"
+  },
+  "permissions": [
+    "tabs",
+    "webNavigation",
+    "clipboardWrite",
+    "storage",
+    "contextMenus"
+  ]
+}
